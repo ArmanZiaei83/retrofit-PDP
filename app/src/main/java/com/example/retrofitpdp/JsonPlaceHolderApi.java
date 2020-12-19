@@ -10,4 +10,7 @@ public interface JsonPlaceHolderApi {
 
     @PUT("posts/{id}")
     Call<Post> putPost(@Path("id") int id , @Body Post post);
+
+    @PATCH("posts/{id}")
+    Call<Post> patchPost (@Path("id") int id , @Body Post post);
 }
