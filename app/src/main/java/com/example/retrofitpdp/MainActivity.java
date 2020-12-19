@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        putPost();
+        //putPost(); //is Also for patch posts
+        deletePost();
+
     }
 
     public void putPost(){
@@ -59,6 +61,21 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Post> call, Throwable t) {
+                textViewResult.setText("Error Throwable : " + t.getMessage());
+            }
+        });
+    }
+
+    public void deletePost(){
+        Call<Void> call = jsonPlaceHolderApi.deletePost(5);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                textViewResult.setText("Code : " + response.code());
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
                 textViewResult.setText("Error Throwable : " + t.getMessage());
             }
         });
