@@ -33,9 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void putPost(){
 
-        final Post post = new Post("Title" , "Hello World" , 1);
-        Call<Post> call = jsonPlaceHolderApi.putPost(3, post);
+        final Post post = new Post("New title" , null , 1);
 
+//        Call<Post> call = jsonPlaceHolderApi.putPost(3, post);
+        Call<Post> call = jsonPlaceHolderApi.patchPost(5 , post);
         call.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {

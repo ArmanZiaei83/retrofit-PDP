@@ -5,7 +5,7 @@ public class Post {
     private String title;
     private String body;
     private int userId;
-    private int id;
+    private Integer id;
 
     public Post(String title, String body, int userId) {
         this.title = title;
