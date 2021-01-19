@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Post post = new Post("New title" , null , 1);
 
-//        Call<Post> call = jsonPlaceHolderApi.putPost(3, post);
+//        Call<Post> call = jsonPlaceHolderApi.putPost(5, post);
         Call<Post> call = jsonPlaceHolderApi.patchPost(5 , post);
         call.enqueue(new Callback<Post>() {
             @Override
